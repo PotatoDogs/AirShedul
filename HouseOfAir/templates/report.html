@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ STATIC_URL }}/static/index.css">
+    </head>
+    <body>
+
+        {% block passanger_arr %}
+        {% endblock %}
+
+        <h1>Прилетают</h1>
+
+        {% block passanger_dep %}
+        {% endblock %}
+
+        <h1>Вылетают</h1>
+
+    </body>
+</html>
+

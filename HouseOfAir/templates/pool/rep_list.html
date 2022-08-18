@@ -1,0 +1,63 @@
+{% extends 'report.html' %}
+
+{% block title %}HouseOfAir{% endblock %}
+
+{% block passanger_arr %}
+
+    <table style="border: 3px solid black">
+    <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>Паспорт</th>
+            <th>Рейс</th>
+        <!--    <th>Время прилета</th> --> 
+        </tr>
+    </thead>
+    {% if list_passanger %}
+
+        {% for a in list_passanger %}
+            {% if a.flight_arrival_id != None %}
+                <tr>
+                    <td>{{a.name}}</td>
+                    <td>{{a.passport}}</td>
+                    <td>{{a.flight_arrival_id}}</td>
+                <!--   <td>{{a.flight_arrival_id.arrivalT_time}}</td> --> 
+                </tr>     
+            {% endif %}
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}
+
+
+{% block passanger_dep %}
+
+<table style="border: 3px solid black">
+    <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>Паспорт</th>
+            <th>Рейс</th>
+        <!--    <th>Время Вылета</th> -->
+        </tr>
+    </thead>
+    {% if list_passanger %}
+
+        {% for a in list_passanger %}
+
+            {% if a.flight_depart_id != None %}
+                <tr>
+                    <td>{{a.name}}</td>
+                    <td>{{a.passport}}</td>
+                    <td>{{a.flight_depart_id}}</td>
+                <!--    <td>{{a.flight_depart_id.departF_time}}</td> -->
+                </tr> 
+            {% endif %}    
+
+        {% endfor %}
+
+    {% endif %}
+
+
+{% endblock %}

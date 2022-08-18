@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ STATIC_URL }}/static/index.css">
+    </head>
+    <body>
+
+        
+        {% block depart %}
+        {% endblock %}
+
+        <h1>Вылет</h1>
+        
+
+        {% block arrival %}
+        {% endblock %}
+
+        <h1>Прибытие</h1>
+
+        {% block parking %}
+        {% endblock %}
+
+        <h1>Парковки</h1>
+
+        {% block service %}
+        {% endblock %}
+
+        <h1>Сервисы</h1>
+
+        {% block store %}
+        {% endblock %}
+
+        <h1>Магазины</h1>
+
+    </body>
+</html>

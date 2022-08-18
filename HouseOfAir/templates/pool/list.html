@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block title %}HouseOfAir{% endblock %}
+
+
+{% block depart %}
+
+    <table style="border: 3px solid black">
+    <thead>
+        <tr>
+            <th>Номер рейса</th>
+            <th>Время вылета</th>
+            <th>В город</th>
+            <th>Самолет</th>
+            <th>Терминал</th>
+        </tr>
+    </thead>
+    {% if list_depar_shedul %}
+
+        {% for a in list_depar_shedul %}
+
+        <tr>
+            <td>{{a.id}}</td>
+            <td>{{a.departF_time}}</td>
+            <td>{{a.where}}</td>
+            <td>{{a.id_plain.name}}</td>
+            <td>{{a.id_terminal.name}}</td>
+        </tr>     
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}
+
+
+{% block arrival %} 
+
+    <table style="border: 3px solid black">
+    <thead>
+        <tr>
+            <th>Номер рейса</th>
+            <th>Время прилета</th>
+            <th>Из города</th>
+            <th>Самолет</th>
+            <th>Терминал</th>
+        </tr>
+    </thead>
+    {% if list_arrival_schedule %}
+
+        {% for a in list_arrival_schedule %}
+
+        <tr>
+            <td>{{a.id}}</td>
+            <td>{{a.arrivalT_time}}</td>
+            <td>{{a.from_where}}</td>
+            <td>{{a.id_plain.name}}</td>
+            <td>{{a.id_terminal.name}}</td>
+        </tr>     
+
+        {% endfor %}
+
+    {% endif %} 
+
+{% endblock %}
+
+
+{% block parking %}
+
+    <table style="border: 3px solid black">
+    <thead>
+        <tr>
+            <th>Терминал</th>
+            <th>Тип</th>
+            <th>Почасовая стоимость</th>
+            <th>Суточная стоимость</th>
+        </tr>
+    </thead>
+    {% if list_parking %}
+
+        {% for a in list_parking %}
+
+        <tr>
+            <td>{{a.id_terminal.name}}</td>
+            <td>{{a.tipe}}</td>
+            <td>{{a.cost_h}}</td>
+            <td>{{a.cost_d}}</td>
+        </tr>     
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}
+
+
+{% block service %}
+
+    <table style="border: 3px solid black">
+    <thead>
+        <tr>
+            <th>Терминал</th>
+            <th>Тип</th>
+            <th>Этаж</th>
+            <th>Стоимость</th>
+        </tr>
+    </thead>
+    {% if list_service %}
+
+        {% for a in list_service %}
+
+        <tr>
+            <td>{{a.id_terminal.name}}</td>
+            <td>{{a.tipe}}</td>
+            <td>{{a.floor}}</td>
+            <td>{{a.cost}}</td>
+        </tr>     
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}
+
+{% block store %}
+
+    <table style="border: 3px solid black">
+    <thead>
+        <tr>
+            <th>Терминал</th>
+            <th>Тип</th>
+            <th>Название</th>
+        </tr>
+    </thead>
+    {% if list_store %}
+
+        {% for a in list_store %}
+
+            {% if a.name != None %}
+                <tr>
+                    <td>{{a.id_terminal.name}}</td>
+                    <td>{{a.tipe}}</td>
+                    <td>{{a.name}}</td>
+                </tr>     
+            {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}
